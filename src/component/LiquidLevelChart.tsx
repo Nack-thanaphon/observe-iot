@@ -1,8 +1,8 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import database from "../service/firebase-config";
 
-function MoistureLevelChart() {
-  const [moistureLevel, setMoistureLevel] = useState(null);
+function LiquidLevelChart() {
+  const [moistureLevel, setMoistureLevel] = useState<number | null>(null);
 
   useEffect(() => {
     // Reference to your database path
@@ -16,11 +16,13 @@ function MoistureLevelChart() {
     // Clean up listener on unmount
     return () => moistureLevelRef.off("value", listener);
   }, []);
+
   const iconV1 = moistureLevel && moistureLevel > 100 ? "↑" : "↓";
+
   return (
     <div>
       <h1 className="flex justify-between">
-        <span className="mr-2">ความชื่น : </span>
+        <span className="mr-2">ระดับแสงแดด : </span>
         <span
           className={moistureLevel && moistureLevel > 100 ? "text-green-500" : "text-red-500"}
         >
@@ -32,4 +34,4 @@ function MoistureLevelChart() {
   );
 }
 
-export default MoistureLevelChart;
+export default LiquidLevelChart;

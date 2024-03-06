@@ -1,23 +1,19 @@
-import React from "react";
 import MoistureLevelChart from "./MoistureLevelChart";
-import LineChart from "./LineChart";
+import { Box } from "@mui/material";
+import LiquidLevelChart from "./LiquidLevelChart";
+import TemptureLevelChart from "./TemptureLevelChart";
 
 function VideoSteam() {
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "100vh",
-        overflow: "hidden",
-      }}
-    >
+    <>
       <video
         style={{
-          position: "absolute",
+          position: "relative",
+          overflow:"hidden",
           width: "100%",
           height: "100%",
           objectFit: "cover",
+          borderRadius:'10px'
         }}
         autoPlay
         loop
@@ -25,44 +21,31 @@ function VideoSteam() {
       >
         <source src="public/video.mp4" type="video/mp4" />
       </video>
-      <div
-        style={{
+      <Box
+        sx={{
           position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          color: "white",
-          fontWeight: "bold",
-          fontSize: "2rem",
-          zIndex: "99",
-          width: "50%",
+          bottom: "10px",
+          padding: "3px",
+          
+          background:"white",          zIndex: 9999,
         }}
       >
-        <LineChart />
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.8)", // Black overlay with 50% opacity
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "80px",
-          left: "15%",
-          color: "white",
-          fontWeight: "bold",
-          fontSize: { sx: "1rem", lg: "3rem" },
-        }}
-      >
+        <LiquidLevelChart />
         <MoistureLevelChart />
-      </div>
-    </div>
+        <TemptureLevelChart />
+      </Box>
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "10px",
+          height: "70px",
+         
+          zIndex: 9999,
+        }}
+      >
+        {/* <p>Live</p> */}
+      </Box>
+    </>
   );
 }
 

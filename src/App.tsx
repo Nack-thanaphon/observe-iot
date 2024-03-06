@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
-import ReactApexChart from "react-apexcharts";
-import database from "./firebase-config";
-import MoistureLevelChart from "./component/MoistureLevelChart";
-import VideoSteam from "./component/VideoSteam";
+import Layout from "./shared/Layout";
 
 function App() {
 
 
   return (
     <>
-      <VideoSteam />
+      <Layout />
     </>
   );
 }

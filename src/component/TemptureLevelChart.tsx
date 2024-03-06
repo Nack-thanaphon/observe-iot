@@ -1,7 +1,7 @@
 import  { useState, useEffect } from "react";
 import database from "../service/firebase-config";
 
-function MoistureLevelChart() {
+function TemptureLevelChart() {
   const [moistureLevel, setMoistureLevel] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function MoistureLevelChart() {
   return (
     <div>
       <h1 className="flex justify-between">
-        <span className="mr-2">ความชื่น : </span>
+        <span className="mr-2">ระดับอุณหภูมิ : </span>
         <span
           className={moistureLevel && moistureLevel > 100 ? "text-green-500" : "text-red-500"}
         >
@@ -32,4 +32,4 @@ function MoistureLevelChart() {
   );
 }
 
-export default MoistureLevelChart;
+export default TemptureLevelChart;

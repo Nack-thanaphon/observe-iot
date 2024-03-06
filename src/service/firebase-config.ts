@@ -1,12 +1,13 @@
+
 import firebase from "firebase/app";
 import "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBxJ4w-vcidkU6OqEX6VJLNQKGLvK462KU",
-  authDomain: "realtime-iot-58104.firebaseapp.com",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
   databaseURL: "https://realtime-iot-58104-default-rtdb.firebaseio.com",
-  projectId: "realtime-iot-58104",
-  messagingSenderId: "592292999074",
+  projectId: `"${process.env.PROJECT_ID}"`,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
 };
 
 if (!firebase.apps.length) {
