@@ -1,4 +1,4 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import VideoSteam from "../component/VideoSteam";
 import LineChart from "../component/LineChart";
 
