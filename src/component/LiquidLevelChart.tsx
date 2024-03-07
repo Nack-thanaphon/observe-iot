@@ -20,14 +20,27 @@ function LiquidLevelChart() {
   const iconV1 = moistureLevel && moistureLevel > 100 ? "↑" : "↓";
 
   return (
-    <div>
-      <h1 className="flex justify-between">
-        <span className="mr-2">ระดับแสงแดด : </span>
+    <div
+      style={{
+        bottom: "10px",
+        padding: "10px",
+        background: "white",
+        borderRadius: "10px",
+      }}
+    >
+      <h1 className="">
+        <span className="mr-2"><i className="ri-sun-line mr-2"></i>ระดับแสงแดด : </span>
+        <br />
         <span
-          className={moistureLevel && moistureLevel > 100 ? "text-green-500" : "text-red-500"}
+          className={
+            moistureLevel && moistureLevel > 100
+              ? "text-green-500"
+              : "text-red-500"
+          }
         >
-          {moistureLevel ?? 0}
-          <span className="ml-0.3">{iconV1}</span>
+          <div className="text-2xl">
+            {moistureLevel ?? 0} <span className="ml-0.3">{iconV1} (30%)</span>
+          </div>
         </span>{" "}
       </h1>
     </div>

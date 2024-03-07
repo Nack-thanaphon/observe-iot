@@ -1,49 +1,49 @@
 import MoistureLevelChart from "./MoistureLevelChart";
-import { Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import LiquidLevelChart from "./LiquidLevelChart";
 import TemptureLevelChart from "./TemptureLevelChart";
 
 function VideoSteam() {
   return (
     <>
-      <video
-        style={{
-          position: "relative",
-          overflow:"hidden",
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          borderRadius:'10px'
-        }}
-        autoPlay
-        loop
-        muted
-      >
-        <source src="public/video.mp4" type="video/mp4" />
-      </video>
+      <Box position={"relative"}>
+        <Stack
+          bgcolor={"white"}
+          position={"absolute"}
+          whiteSpace={'nowrap'}
+          top={10}
+          left={10}
+          paddingX={3}
+          borderRadius={3}
+        >
+          <span><span className="dot"></span> Live</span>
+        </Stack>
+        <video
+          className="sm:h-[100%] lg:h-[580px]"
+          style={{
+            width: "100%",
+
+            objectFit: "cover",
+            borderRadius: "10px",
+          }}
+          preload="none"
+          autoPlay
+          loop
+          muted
+          controls
+        >
+          <source src="https://contactus.work/uploads/plant.mp4"  type="video/mp4" />
+        </video>
+      </Box>
       <Box
-        sx={{
-          position: "absolute",
-          bottom: "10px",
-          padding: "3px",
-          
-          background:"white",          zIndex: 9999,
-        }}
+        display={"grid"}
+        gridTemplateColumns={{ sm: "1fr", lg: "1fr 1fr 1fr" }}
+        gap={2}
+        marginTop={1}
       >
         <LiquidLevelChart />
         <MoistureLevelChart />
         <TemptureLevelChart />
-      </Box>
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: "10px",
-          height: "70px",
-         
-          zIndex: 9999,
-        }}
-      >
-        {/* <p>Live</p> */}
       </Box>
     </>
   );
