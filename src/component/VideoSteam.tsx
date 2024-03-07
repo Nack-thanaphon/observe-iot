@@ -10,29 +10,34 @@ function VideoSteam() {
         <Stack
           bgcolor={"white"}
           position={"absolute"}
-          whiteSpace={'nowrap'}
+          whiteSpace={"nowrap"}
           top={10}
           left={10}
           paddingX={3}
           borderRadius={3}
         >
-          <span><span className="dot"></span> Live</span>
+          <span>
+            <span className="dot"></span> Live
+          </span>
         </Stack>
         <video
           className="sm:h-[100%] lg:h-[580px]"
           style={{
             width: "100%",
-
             objectFit: "cover",
             borderRadius: "10px",
           }}
-          preload="none"
+          preload="metadata" // Changed to ensure metadata is loaded for faster start
           autoPlay
           loop
           muted
+          playsInline // Added for iOS devices to autoplay inline
           controls
         >
-          <source src="https://contactus.work/uploads/plant.mp4"  type="video/mp4" />
+          <source
+            src="https://contactus.work/uploads/plant.mp4"
+            type="video/mp4"
+          />
         </video>
       </Box>
       <Box
