@@ -2,8 +2,11 @@ import MoistureLevelChart from "./MoistureLevelChart";
 import { Box, Stack } from "@mui/material";
 import LiquidLevelChart from "./LiquidLevelChart";
 import TemptureLevelChart from "./TemptureLevelChart";
+import VideoPlayer from "../component/VideoPlayer";
 
 function VideoSteam() {
+  const videoSrc:string = "https://contactus.work/uploads/plant.m3u8";
+
   return (
     <>
       <Box position={"relative"}>
@@ -20,25 +23,7 @@ function VideoSteam() {
             <span className="dot"></span> Live
           </span>
         </Stack>
-        <video
-          className="sm:h-[100%] lg:h-[580px]"
-          style={{
-            width: "100%",
-            objectFit: "cover",
-            borderRadius: "10px",
-          }}
-          preload="metadata" // Changed to ensure metadata is loaded for faster start
-          autoPlay
-          loop
-          muted
-          playsInline // Added for iOS devices to autoplay inline
-          controls
-        >
-          <source
-            src="https://contactus.work/uploads/plant.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <VideoPlayer src={videoSrc} />
       </Box>
       <Box
         display={"grid"}
